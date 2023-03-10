@@ -9,22 +9,14 @@ $menu_profil  = $menu->profil();
 $menu_layanan = $menu->layanan();
 ?>
 <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-flex align-items-center fixed-top">
-    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
-      <div class="align-items-center d-none d-md-flex">
-        <i class="fa fa-home"></i> <?= tagline(); ?>
-      </div>
-      <div class="d-flex align-items-center">
-        <i class="bi bi-phone"></i> <?= telepon() ?>
-      </div>
-    </div>
+  <div id="top" class="d-flex align-items-center fixed-top" >
+        <marquee behavior="" direction=""><i class="">&nbsp &nbsp</i> <?= tagline(); ?></marquee>
   </div>
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <a href="index.html" class="logo me-auto"><img src="<?= base_url('assets/upload/image/' . $site['logo']) ?>" alt="<?= $site['namaweb'] ?>"></a>
+      <a href="#" class="logo me-auto"><img src="<?= base_url('assets/upload/image/' . $site['logo']) ?>" alt="<?= $site['namaweb'] ?>"></a>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <h1 class="logo me-auto"><a href="index.html">Medicio</a></h1> -->
 
@@ -67,9 +59,24 @@ $menu_layanan = $menu->layanan();
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="<?= base_url('login') ?>" class="appointment-btn scrollto">
+      <a href="<?= base_url('login') ?>" id="buttonlogin" class="appointment-btn scrollto">
         Login <span class="d-none d-md-inline">Admin</span>
       </a>
 
     </div>
   </header><!-- End Header -->
+
+  <style>
+    #top {
+      background: #00D100;
+      height: 40px;
+      font-size: 16px;
+      font-weight: 600;
+      z-index: 996;
+      transition: all 0.5s;
+    }
+    #buttonlogin{
+      background: #00D100
+    }
+    
+  </style>

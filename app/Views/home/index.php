@@ -1,9 +1,12 @@
-<?php use App\Models\Menu_model;
-
+<?php 
+use App\Models\Menu_model;
+use App\Models\Galeri_model;
+$galeri = new Galeri_model;
 $menu    = new Menu_model();
 $berita  = $menu->berita();
 $profil  = $menu->profil();
 $layanan = $menu->layanan();
+$galeri = $galeri->galeri();
 ?>
 
 <!-- ======= Hero Section ======= -->
@@ -24,7 +27,6 @@ foreach ($slider as $slider) {  ?>
           <div class="container" style="max-width: 70%; text-align: left; padding-left: 2%; padding-right: 2%;">
                 <h2><?= $slider['judul_galeri'] ?></h2>
                 <p><?= $slider['isi'] ?></p>
-                <a href="<?= $slider['website'] ?>" class="btn-get-started scrollto">Read More</a>
             </div>
           <?php } ?>
         </div>
@@ -45,45 +47,12 @@ foreach ($slider as $slider) {  ?>
 
 
   <main id="main">
-
-    <!-- ======= Featured Services Section ======= -->
-    <section id="featured-services" class="featured-services">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row">
-          <?php $pr = 1;
-
-foreach ($profil as $profil) { ?>
-          <div class="col-md-6 col-lg-4 text-center d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="<?= $pr ?>00">
-              <div class="icon"><i class="<?= $profil['icon'] ?>"></i></div>
-              <h4 class="title"><a href="<?= base_url('berita/profil/' . $profil['slug_berita']) ?>"><?= $profil['judul_berita'] ?></a></h4>
-              <p class="description"><?= $profil['ringkasan'] ?></p>
-            </div>
-          </div>
-          <?php $pr++; } ?>
-</div>
-      </div>
-    </section><!-- End Featured Services Section -->
-
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
-      <div class="container" data-aos="zoom-in">
-
-        <div class="text-center">
-          <h3>Selamat datang di <?= $konfigurasi['namaweb'] ?></h3>
-          <p><?= $konfigurasi['tagline'] ?></p>
-        </div>
-
-      </div>
-    </section><!-- End Cta Section -->
-
-    <!-- ======= About Us Section ======= -->
+    <!-- ======= Sambutan  Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>About <?= $konfigurasi['namaweb'] ?></h2>
+          <h2>Sambutan Camat <?= $konfigurasi['namaweb'] ?></h2>
          <?= $konfigurasi['deskripsi'] ?>
         </div>
 
@@ -97,33 +66,30 @@ foreach ($profil as $profil) { ?>
         </div>
 
       </div>
-    </section><!-- End About Us Section -->
+    </section><!-- End Sambutan  Section -->
 
-
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services services">
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
-          <h2>Layanan Kami</h2>
-          <p>Yuk gunakan layanan yang ada di <?= namaweb() ?>. <?= tagline() ?></p>
+            <h2>Gallery</h2>
+            <p><?= tagline() ?></p>
         </div>
-
-        <div class="row">
-          <?php $ml = 1;
-
-foreach ($layanan as $layanan) { ?>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="<?= $ml; ?>00">
-            <div class="icon"><i class="<?= $layanan['icon'] ?>"></i></div>
-            <h4 class="title"><a href="<?= base_url('berita/layanan/' . $layanan['slug_berita']) ?>"><?= $layanan['judul_berita'] ?></a></h4>
-            <p class="description"><?= $layanan['ringkasan'] ?></p>
+        <div class="gallery-slider swiper-container">
+          <div class="swiper-wrapper align-items-center">
+            <?php foreach ($galeri as $galeri) { ?>
+            <div class="swiper-slide">
+              <a class="gallery-lightbox" href="<?= base_url('assets/upload/image/' . $galeri['gambar']) ?>">
+                <img src="<?= base_url('assets/upload/image/' . $galeri['gambar']) ?>" class="img-fluid" alt="<?= $galeri['judul_galeri'] ?>">
+              </a>
+            </div>
+           <?php } ?>
           </div>
-          <?php $ml++; } ?>
+          <div class="swiper-pagination"></div>
         </div>
-
       </div>
-    </section><!-- End Services Section -->
+    </section>
+
 
     <?php include 'berita.php'?>
 
@@ -140,3 +106,100 @@ foreach ($layanan as $layanan) { ?>
       </div>
     </section><!-- End Contact Section -->
 </main><!-- End #main -->
+<style>
+  #hero .container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+    border-top: 4px solid #00D100;
+  }
+  #hero .btn-get-started {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 4px;
+    transition: 0.5s;
+    line-height: 1;
+    color: #fff;
+    background: #00D100;
+  }
+  #hero .carousel-control-next-icon, #hero .carousel-control-prev-icon {
+    background: none;
+    font-size: 30px;
+    line-height: 0;
+    width: auto;
+    height: auto;
+    background: #00D100;
+    border-radius: 50px;
+    transition: 0.3s;
+    color: rgba(255, 255, 255, 0.5);
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #hero .carousel-control-next-icon:hover, #hero .carousel-control-prev-icon:hover {
+  background: #00D100;
+  color: rgba(255, 255, 255, 0.8);
+  }
+  #hero .carousel-indicators li {
+    cursor: pointer;
+    background: #00D100;
+    overflow: hidden;
+    border: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    opacity: .6;
+    transition: 0.3s;
+  }
+
+  #hero .carousel-indicators li.active {
+    opacity: 1;
+    background: #00D100;
+  }
+  .gallery {
+  overflow: hidden;
+  }
+
+  .gallery .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .gallery .swiper-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    opacity: 1;
+    border: 1px solid #00D100;
+  }
+
+  .gallery .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #00D100;
+  }
+
+  .gallery .swiper-slide-active {
+    text-align: center;
+  }
+
+  @media (min-width: 992px) {
+    .gallery .swiper-wrapper {
+      padding: 40px 0;
+    }
+    .gallery .swiper-slide-active {
+      border: 6px solid #00D100;
+      padding: 4px;
+      background: #fff;
+      z-index: 1;
+      transform: scale(1.2);
+      margin-top: 10px;
+    }
+  }
+</style>

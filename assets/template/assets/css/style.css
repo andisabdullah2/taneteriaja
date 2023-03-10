@@ -14,12 +14,12 @@ body {
 }
 
 a {
-  color: #00A300;
+  color: #3fbbc0;
   text-decoration: none;
 }
 
 a:hover {
-  color: #00A300;
+  color: #65c9cd;
   text-decoration: none;
 }
 
@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #00A300;
+  border: 6px solid #3fbbc0;
   border-top-color: #ecf8f9;
   border-radius: 50%;
   width: 60px;
@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #00A300;
+  background: #3fbbc0;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -97,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .back-to-top:hover {
-  background: #00A300;
+  background: #5ec6ca;
   color: #fff;
 }
 
@@ -119,8 +119,16 @@ h1, h2, h3, h4, h5, h6 {
 # Top Bar
 --------------------------------------------------------------*/
 #topbar {
-  background: #00A300;
+  background: #3fbbc0;
+  background-image: url("../img/898.jpg");
   color: #fff;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  z-index: 996;
+  transition: all 0.5s;
+}
+#top {
   height: 40px;
   font-size: 16px;
   font-weight: 600;
@@ -182,7 +190,7 @@ h1, h2, h3, h4, h5, h6 {
 */
 .appointment-btn {
   margin-left: 25px;
-  background: #00A300;
+  background: #3fbbc0;
   color: #fff;
   border-radius: 4px;
   padding: 8px 25px;
@@ -193,7 +201,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .appointment-btn:hover {
-  background: #00A300;
+  background: #65c9cd;
   color: #fff;
 }
 
@@ -403,7 +411,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #00A300;
+  color: #3fbbc0;
 }
 
 .navbar-mobile .dropdown > .dropdown-active {
